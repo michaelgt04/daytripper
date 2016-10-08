@@ -1,2 +1,30 @@
-// @import "*";
+@import "materialize";
 
+body {
+  background-color: #FDF8EA;
+}
+
+.search {
+  padding: 6rem 4rem 11rem 4rem;
+}
+
+.menu-bar {
+  width: 100%;
+  padding: 2rem;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 25%;
+}
+
+.input-field {
+  border: none;
+  display: inline-block;
+}
+
+.submit {
+  margin: auto;
+  display: block;
+}
