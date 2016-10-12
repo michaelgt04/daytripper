@@ -11,9 +11,9 @@ class App extends Component {
       state: "",
       range: "",
       type: "food",
-      data: [],
+      destinations: [],
       component: "search"
-    }
+    };
     this.returnToSearch = this.returnToSearch.bind(this);
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleStateChange = this.handleStateChange.bind(this);
@@ -57,9 +57,9 @@ class App extends Component {
       })
       .done(data => {
         this.setState({
-          data: data,
+          destinations: this.state.destinations.concat(data),
           component: "list"
-        })
+        });
       })
   }
 
@@ -84,7 +84,8 @@ class App extends Component {
       } else {
           return (
             <List
-              data={this.state.data}
+              getData={this.getData}
+              data={this.state.destinations}
               />
           )
         }
