@@ -12,8 +12,9 @@ class App extends Component {
       range: "",
       type: "food",
       data: [],
-      component: "form"
+      component: "search"
     }
+    this.returnToSearch = this.returnToSearch.bind(this);
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleStateChange = this.handleStateChange.bind(this);
     this.handleRangeChange = this.handleRangeChange.bind(this);
@@ -44,6 +45,10 @@ class App extends Component {
     this.setState({ type: newType })
   }
 
+  returnToSearch(event) {
+    this.setState({ component: "search" })
+  }
+
   getData() {
     $.ajax({
         method: "POST",
@@ -66,7 +71,7 @@ class App extends Component {
   render () {
 
     let chooseComponent = () => {
-      if (this.state.component === "form") {
+      if (this.state.component === "search") {
         return (
           <Form
             handleStateChange={this.handleStateChange}
@@ -87,7 +92,10 @@ class App extends Component {
 
     return(
       <div>
-        <Menu />
+        <Menu
+          returnToSearch={this.returnToSearch}
+          component={this.state.component}
+          />
         {chooseComponent()}
       </div>
       )
