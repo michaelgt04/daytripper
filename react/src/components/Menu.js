@@ -4,7 +4,6 @@ import Logo from './Logo';
 const Menu = props => {
 
   let displayReturnLink = (state) => {
-    debugger;
     if (state === "list") {
       return (
         <a onClick={props.returnToSearch}>Return to Search</a>
