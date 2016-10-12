@@ -10,7 +10,6 @@ class List extends Component {
   }
 
   render () {
-    debugger;
     let destinations = this.props.data.map(destination => {
 
       return(
@@ -34,7 +33,7 @@ class List extends Component {
       <div className="small-10 small-offset-1 columns">
         {destinations}
       </div>
-      <div className="col s3 offset-s4 center-align">
+      <div className="col s4 offset-s4 center-align">
         <button className="btn center-align" onClick={this.props.getData}>Next Destination</button>
       </div>
     </div>
