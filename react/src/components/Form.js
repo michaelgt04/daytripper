@@ -14,9 +14,9 @@ const Form = props => {
             <input type="text" name="range" placeholder="Enter range (in miles) here..." onChange={props.handleRangeChange}/>
           </div>
           <div className="input-field col s3">
-            <select name="type" onChange={props.handleTypeChange}>
+            <select name="type" className="browser-default" onChange={props.handleTypeChange}>
               <option value="food">Food</option>
-              <option value="learn">Learn</option>
+              <option value="museum">Learn</option>
               <option value="nature">Nature</option>
               <option value="entertainment">Entertainment</option>
             </select>
