@@ -16,7 +16,7 @@ const Form = props => {
           <div className="input-field col s3">
             <select name="type" className="browser-default" onChange={props.handleTypeChange}>
               <option value="food">Food</option>
-              <option value="learn">Learn</option>
+              <option value="museum">Learn</option>
               <option value="nature">Nature</option>
               <option value="entertainment">Entertainment</option>
             </select>

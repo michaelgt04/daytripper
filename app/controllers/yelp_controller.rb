@@ -21,8 +21,6 @@ class YelpController < ApplicationController
 
     response_array << {id: chosen_stop.location.coordinate.latitude, name: chosen_stop.name, categories: chosen_stop.categories, image_url: chosen_stop.image_url, rating: chosen_stop.rating, address: chosen_stop.location.address, city: chosen_stop.location.city, state: chosen_stop.location.state_code, review_count: chosen_stop.review_count, phone: chosen_stop.phone}
 
-    binding.pry
-
     response_json = response_array.to_json
 
     render json: response_json

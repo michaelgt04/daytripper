@@ -11,7 +11,8 @@ class App extends Component {
       state: "",
       range: "",
       type: "food",
-      data:[]
+      data: [],
+      component: "form"
     }
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleStateChange = this.handleStateChange.bind(this);
@@ -51,7 +52,8 @@ class App extends Component {
       })
       .done(data => {
         this.setState({
-          data: data
+          data: data,
+          component: "list"
         })
       })
   }
@@ -63,19 +65,30 @@ class App extends Component {
 
   render () {
 
+    let chooseComponent = () => {
+      if (this.state.component === "form") {
+        return (
+          <Form
+            handleStateChange={this.handleStateChange}
+            handleCityChange={this.handleCityChange}
+            handleRangeChange={this.handleRangeChange}
+            handleTypeChange={this.handleTypeChange}
+            handleSubmit={this.handleSubmit}
+            />
+        )
+      } else {
+          return (
+            <List
+              data={this.state.data}
+              />
+          )
+        }
+    }
+
     return(
       <div>
         <Menu />
-        <Form
-          handleStateChange={this.handleStateChange}
-          handleCityChange={this.handleCityChange}
-          handleRangeChange={this.handleRangeChange}
-          handleTypeChange={this.handleTypeChange}
-          handleSubmit={this.handleSubmit}
-          />
-        <List
-          data={this.state.data}
-          />
+        {chooseComponent()}
       </div>
       )
     }
