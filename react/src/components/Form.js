@@ -17,7 +17,7 @@ const Form = props => {
             <select name="type" className="browser-default" onChange={props.handleTypeChange}>
               <option value="food">Food</option>
               <option value="museum">Learn</option>
-              <option value="nature">Nature</option>
+              <option value="park">Nature</option>
               <option value="entertainment">Entertainment</option>
             </select>
           </div>
