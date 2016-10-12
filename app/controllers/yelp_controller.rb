@@ -17,9 +17,11 @@ class YelpController < ApplicationController
 
     response_array = []
 
-    response.businesses.each do |business|
-      response_array << {id: business.location.coordinate.latitude, name: business.name, categories: business.categories, image_url: business.image_url, rating: business.rating, address: business.location.address, city: business.location.city, state: business.location.state_code, review_count: business.review_count, phone: business.phone}
-    end
+    chosen_stop = response.businesses.sample
+
+    response_array << {id: chosen_stop.location.coordinate.latitude, name: chosen_stop.name, categories: chosen_stop.categories, image_url: chosen_stop.image_url, rating: chosen_stop.rating, address: chosen_stop.location.address, city: chosen_stop.location.city, state: chosen_stop.location.state_code, review_count: chosen_stop.review_count, phone: chosen_stop.phone}
+
+    binding.pry
 
     response_json = response_array.to_json
 
