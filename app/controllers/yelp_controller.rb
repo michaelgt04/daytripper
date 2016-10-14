@@ -10,7 +10,7 @@ class YelpController < ApplicationController
 
     queries = {
       term: params["type"],
-      limit: 10,
+      limit: 20,
       range: params["range"],
     }
 
