@@ -21,6 +21,8 @@ class App extends Component {
     this.handleTypeChange = this.handleTypeChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getData = this.getData.bind(this);
+    this.deleteLastDestination = this.deleteLastDestination.bind(this);
+    this.switchDestination = this.switchDestination.bind(this);
   }
 
   handleCityChange(event) {
@@ -63,6 +65,29 @@ class App extends Component {
       })
   }
 
+  deleteLastDestination() {
+    if (this.state.destinations.length === 1){
+      this.setState({destinations: []})
+    } else {
+      this.setState( this.state.destinations.pop() )
+    }
+  }
+
+  switchDestination() {
+    $.ajax({
+        method: "POST",
+        url: "/yelp/data",
+        data: {type: this.state.type, range: this.state.range, state: this.state.state, city: this.state.city}
+      })
+      .done(data => {
+        this.deleteLastDestination();
+        this.setState({
+          destinations: this.state.destinations.concat(data),
+          component: "list"
+        });
+      })
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     this.getData();
@@ -85,6 +110,7 @@ class App extends Component {
           return (
             <List
               getData={this.getData}
+              switchDestination={this.switchDestination}
               data={this.state.destinations}
               />
           )

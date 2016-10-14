@@ -6,7 +6,7 @@ class List extends Component {
     super(props);
     this.state = {
       data: []
-    }
+    };
   }
 
   render () {
@@ -24,6 +24,7 @@ class List extends Component {
         city={destination.city}
         state={destination.state}
         description={destination.description}
+        getData={this.props.getData}
         />
       )
     });
@@ -31,11 +32,12 @@ class List extends Component {
 
   return(
     <div className="row">
-      <div className="small-10 small-offset-1 columns">
+      <div className="col s12">
         {destinations}
       </div>
-      <div className="col s4 offset-s4 center-align">
-        <button className="btn center-align" onClick={this.props.getData}>Next Destination</button>
+      <div className="col s8 offset-s2 center-align">
+        <button className="btn" onClick={this.props.getData}>Next Destination</button>
+        <button className="btn" onClick={this.props.switchDestination}>Switch New Destination</button>
       </div>
     </div>
     )
