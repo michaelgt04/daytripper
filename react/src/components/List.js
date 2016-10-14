@@ -23,6 +23,7 @@ class List extends Component {
         address={destination.address}
         city={destination.city}
         state={destination.state}
+        description={destination.description}
         />
       )
     });
