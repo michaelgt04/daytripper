@@ -4,8 +4,8 @@ class YelpController < ApplicationController
     client = Yelp::Client.new({
       consumer_key: "IzBOsSutQXAXTf_BiIOh6Q",
       consumer_secret: "QUkid2YjU52XRz5w8aFjpW1JZv0",
-      token: "DAHaattUWvPnyXuawR0dVNJLwSNf1EGH",
-      token_secret: "TP3Mgv8lOrOov5oKj_LD3KsfEy8"
+      token: "BF4dup8FbJpQnaHhMNXDlPO5DgegZKV7",
+      token_secret: "bClj4C6pQ3VXotmEEliPsHEIui0"
     })
 
     queries = {
